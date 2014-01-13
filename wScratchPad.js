@@ -86,7 +86,8 @@
 		scratchDown		: null,					// scratchDown callback
 		scratchUp		: null,					// scratchUp callback
 		scratchMove		: null,					// scratcMove callback
-		cursor			: null					// Set path to custom cursor
+		cursor			: null,					// Set path to custom cursor
+    		link    		: null            			// Set path to link
 	};
 	
 	function ScratchPad(settings, elem)
@@ -231,6 +232,10 @@
 		clear: function()
 		{
 			this.ctx.clearRect(0, 0, this.settings.width, this.settings.height);
+			if(this.settings.link)
+			{
+		        	this.sp.html('<a id="wscratchlink" href="'+this.settings.link+'"></a>');
+		      	}
 		},
 
 		setBgImage: function()
